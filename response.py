@@ -9,7 +9,7 @@ headers={
 }
 url='https://aiproxy.sanand.workers.dev/openai/v1/chat/completions'
 print(token)
-def get_response(prompt,filepath=None):
+async def get_response(prompt,filepath=None):
     print(token)
     if filepath:
         syspt = (
