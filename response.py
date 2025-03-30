@@ -43,7 +43,7 @@ def get_response(prompt,filepath=None):
     print(jsn_res)
     fixed_code = jsn_res["code"].encode('utf-8').decode('unicode_escape')
     req=jsn_res["requirements"].encode('utf-8').decode('unicode_escape')
-    with open("script/script.py", "w") as f:
+    with open("/tmp/script.py", "w") as f:
         f.write(fixed_code)
     with open('req2.txt','w') as f:
         f.write(req)
