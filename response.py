@@ -35,14 +35,12 @@ async def get_response(prompt,filepath=None):
         "Assume repositories are not created unless provided already."
         "Do not write the content directly into the Python file. "
     )
-   async with httpx.AsyncClient() as client:
-    response = await client.post(url, headers=headers, json={
+    async with httpx.AsyncClient() as client:
+        response = await client.post(url, headers=headers, json={
         "model": "gpt-4o-mini",
         "messages": [
             {"role": "system", "content": syspt},
-            {"role": "user", "content": prompt}
-        ]
-    })
+            {"role": "user", "content": prompt}]})
     print(response.json())
     jsn_res= json.loads(response.json()['choices'][0]['message']['content'])
     print(jsn_res)
