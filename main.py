@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from Flask import Response
 from flask_cors import CORS
 import os
 import socket
@@ -23,7 +24,7 @@ def handle_request():
         file_path = os.path.join(UPLOAD_FOLDER, file.filename)
         file.save(file_path)
     val = asyncio.run(get_response(query, file_path))
-    return jsonify({"answer": val}),200
+    return jsonify({"answer": Response(val, mimetype="text/plain")}),200
     # Save the file if uploaded
 
 if __name__ == '__main__':
