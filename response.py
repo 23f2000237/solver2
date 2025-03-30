@@ -40,7 +40,7 @@ async def get_response(prompt,filepath=None):
         "model": "gpt-4o-mini",
         "messages": [
             {"role": "system", "content": syspt},
-            {"role": "user", "content": prompt}]},timeout=60 )
+            {"role": "user", "content": prompt}]},timeout=20 )
     print(response.json())
     jsn_res= json.loads(response.json()['choices'][0]['message']['content'])
     print(jsn_res)
