@@ -12,7 +12,7 @@ def run_script():
             capture_output=True)
 
         # Capture stdout or stderr output
-        output = result.stdout.strip()
+        output = result.stdout
         return output
 
     except Exception as e:
