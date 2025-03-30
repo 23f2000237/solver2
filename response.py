@@ -37,11 +37,11 @@ def get_response(prompt,filepath=None):
 
 
 
-    response = requests.post(url=url,headers=headers,json={"model": "gpt-4o-mini","messages": [
+    response = await requests.post(url=url,headers=headers,json={"model": "gpt-4o-mini","messages": [
             { "role": "system", "content":syspt},
             { "role": "user", "content": prompt }]})
     print(response.json())
-    jsn_res=json.loads(response.json()['choices'][0]['message']['content'])
+    jsn_res=await json.loads(response.json()['choices'][0]['message']['content'])
     print(jsn_res)
     fixed_code = jsn_res["code"].encode('utf-8').decode('unicode_escape')
     req=jsn_res["requirements"].encode('utf-8').decode('unicode_escape')
