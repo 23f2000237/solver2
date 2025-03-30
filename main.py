@@ -7,7 +7,7 @@ socket.setdefaulttimeout(300)
 app = Flask(__name__)
 CORS(app)  # Enable CORS globally
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 300
-UPLOAD_FOLDER = 'uploads'
+UPLOAD_FOLDER = '/tmp'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @app.route('/api/', methods=['POST'])
