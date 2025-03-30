@@ -1,0 +1,4 @@
+flask
+socket
+subprocess
+requests
