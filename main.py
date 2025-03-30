@@ -21,7 +21,7 @@ def handle_request():
     if file:
         file_path = os.path.join(UPLOAD_FOLDER, file.filename)
         file.save(file_path)
-    val=get_response(query,file_path)
+    val = asyncio.run(get_response(query, file_path))
     return jsonify({"answer": val}),200
     # Save the file if uploaded
 
