@@ -3,7 +3,7 @@ def run_script():
     """Install requirements and run script.py, capturing the output."""
     try:
         # Install the requirements
-        subprocess.run(["pip", "install", "-r", "req2.txt"], check=True)
+        subprocess.run(["pip", "install", "-r", "/tmp/req2.txt"], check=True)
 
         # Execute the script and capture the output
         result = subprocess.run(
