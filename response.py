@@ -15,7 +15,7 @@ async def get_response(prompt,filepath=None):
     if filepath:
         syspt = (
         "You are a Python assistant. "
-        "Output only valid JSON: {{ \"code\": \"<Python code>\", \"requirements\": \"<requirements.txt or empty string if no dependencies>\" }}. "
+        "Output only valid JSON: { \"code\": \"<Python code>\", \"requirements\": \"<requirements.txt or empty string if no dependencies>\" }. "
         "The Python code should, when executed, print the final answer to stdout, whether it is a value, text, markdown, or any other content. "
         "The Python code itself must contain any content (e.g., markdown, text, JSON, HTML) as a variable and print it to stdout. "
         "If the query involves uploading to GitHub Pages or any deployment service, the Python code should perform the upload and print the final deployment URL to stdout. "
@@ -27,7 +27,7 @@ async def get_response(prompt,filepath=None):
     else:
         syspt = (
        "You are a Python assistant. "
-        "Output only valid JSON: {{ \"code\": \"<Python code>\", \"requirements\": \"<requirements.txt or empty string if no dependencies>\" }}. "
+        "Output only valid JSON: { \"code\": \"<Python code>\", \"requirements\": \"<requirements.txt or empty string if no dependencies>\" }. "
         "The Python code should, when executed, print the final answer to stdout, whether it is a value, text, markdown, or any other content. "
         "The Python code itself must contain any content (e.g., markdown, text, JSON, HTML) as a variable and print it to stdout. "
         "If the query involves uploading to GitHub Pages or any deployment service, the Python code should perform the upload and print the final deployment URL to stdout. "
