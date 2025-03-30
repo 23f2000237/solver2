@@ -7,7 +7,7 @@ def run_script():
 
         # Execute the script and capture the output
         result = subprocess.run(
-            ["python3","script/script.py"], 
+            ["python3","/tmp/script.py"], 
             text=True,
             capture_output=True)
 
