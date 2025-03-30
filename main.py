@@ -23,7 +23,8 @@ def handle_request():
         file_path = os.path.join(UPLOAD_FOLDER, file.filename)
         file.save(file_path)
     val = asyncio.run(get_response(query, file_path))
-    return jsonify({"answer": Response(val, mimetype="text/plain")}),200
+    response_data = json.dumps({"answer": val})
+    return Response(response_data, mimetype="application/json"), 200
     # Save the file if uploaded
 
 if __name__ == '__main__':
