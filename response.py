@@ -22,6 +22,7 @@ async def get_response(prompt,filepath=None):
         "Do not write the content directly into the Python file. "
         "If any github username is required, take from the environment variable 'username'. "
         "Assume repositories are not created unless provided already."
+        "When asked for SQL or DuckDB queries, store the queries alone as a variable and print them through the code"
         "The code should use the file path: '{}'".format(filepath)
     )
     else:
@@ -34,6 +35,7 @@ async def get_response(prompt,filepath=None):
         "If any github username is required, take from the environment variable 'username'. "
         "Assume repositories are not created unless provided already."
         "Do not write the content directly into the Python file. "
+        "When asked for SQL or DuckDB queries, store the queries alone as a variable and print them through the code. "
     )
     async with httpx.AsyncClient() as client:
         response = await client.post(url, headers=headers, json={
