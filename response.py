@@ -2,6 +2,7 @@ import requests
 import json
 import os 
 from running import run_script
+import httpx
 token= os.environ.get('token')
 headers={
     "Authorization":f"Bearer {token}",
@@ -34,12 +35,14 @@ async def get_response(prompt,filepath=None):
         "Assume repositories are not created unless provided already."
         "Do not write the content directly into the Python file. "
     )
-
-
-
-    response = await requests.post(url=url,headers=headers,json={"model": "gpt-4o-mini","messages": [
-            { "role": "system", "content":syspt},
-            { "role": "user", "content": prompt }]})
+   async with httpx.AsyncClient() as client:
+    response = await client.post(url, headers=headers, json={
+        "model": "gpt-4o-mini",
+        "messages": [
+            {"role": "system", "content": syspt},
+            {"role": "user", "content": prompt}
+        ]
+    })
     print(response.json())
     jsn_res= json.loads(response.json()['choices'][0]['message']['content'])
     print(jsn_res)
