@@ -2,7 +2,7 @@ import requests
 import json
 import os 
 from running import run_script
-token= os.environ.get('token')
+
 headers={
     "Authorization":f"Bearer {token}",
     "Content-Type":"application/json"
@@ -10,6 +10,7 @@ headers={
 url='https://aiproxy.sanand.workers.dev/openai/v1/chat/completions'
 print(token)
 def get_response(prompt,filepath=None):
+    token= os.environ.get('token')
     if filepath:
         syspt = (
         "You are a Python assistant. "
