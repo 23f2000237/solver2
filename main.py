@@ -10,7 +10,7 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 300
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-@app.route('/api', methods=['POST'])
+@app.route('/api/', methods=['POST'])
 def handle_request():
     """POST endpoint to accept query and optional file."""
     file_path = None
